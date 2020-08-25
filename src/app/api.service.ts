@@ -21,7 +21,7 @@ export class ApiService {
       .get(API_URL + '/payments')
       .pipe(map(response => {
         const payments = response.json();
-        return payments.map((payment) => new Payment(payment));
+        return payments.pipe(map((payment) => new Payment(payment)));
       }));
       // .catch(this.handleError);
   }
@@ -32,28 +32,6 @@ export class ApiService {
       .pipe(map(response => {
         return new Payment(response.json());
       }));
-  }
-
-  public getPaymentById(paymentId: number): Observable<Payment> {
-    return this.http
-      .get(API_URL + '/payments/' + paymentId)
-      .pipe(map(response => {
-        return new Payment(response.json());
-      }));
-  }
-
-  public updatePayment(payment: Payment): Observable<Payment> {
-    return this.http
-      .put(API_URL + '/payments/' + payment.id, payment)
-      .pipe(map(response => {
-        return new Payment(response.json());
-      }));
-  }
-
-  public deletePaymentById(paymentId: number): Observable<null> {
-    return this.http
-      .delete(API_URL + '/payments/' + paymentId)
-      .pipe(map(response => null));
   }
 
   private handleError (error: Response | any) {
