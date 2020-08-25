@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "Payment":[
+    {
+      "creditCardNumber":12323,
+      "cardholder":"A American Express Cardholder",
+      "expirationDate":"12/31/2025",
+      "securityCode":"012",
+      "amount":12
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
