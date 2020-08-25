@@ -28,7 +28,7 @@ export class ApiService {
 
   public createPayment(payment: Payment): Observable<Payment> {
     return this.http
-      .post(API_URL + '/payments', payment)
+      .post(API_URL + '/payment', payment)
       .pipe(map(response => {
         return new Payment(response.json());
       }));
